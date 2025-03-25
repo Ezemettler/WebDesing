@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function sendToGoogleSheets(data) {
-        fetch('https://script.google.com/macros/s/AKfycbw0CALr-LKFHKBL4vkrzmHo9NuBikpEDVUg82d9iCUM-o9hJuW4cV4y3M4JhfzB6cI5/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbwR5AS5XO7U5V5Gmc1iOcjMgs8_SQ_mLD2PKUlYMR8TIe0A8FnHoTvVSuphJ3o3DHRJ/exec', {
 
             method: 'POST',
             body: JSON.stringify(data),
