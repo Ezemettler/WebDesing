@@ -33,19 +33,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function sendToGoogleSheets(data) {
         fetch('https://script.google.com/macros/s/AKfycbwR5AS5XO7U5V5Gmc1iOcjMgs8_SQ_mLD2PKUlYMR8TIe0A8FnHoTvVSuphJ3o3DHRJ/exec', {
-
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+          method: 'POST',
+          body: JSON.stringify(data), // Sigue usando JSON
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          mode: 'cors', // Asegura que se use CORS
+          redirect: 'follow' // Maneja redirecciones si las hay
         })
-        .then(response => response.text())
-        .then(responseText => {
-            alert(responseText); // Muestra la respuesta del servidor
+        .then(response => response.json()) // Cambié a .json() para parsear la respuesta correctamente
+        .then(responseData => {
+          alert(responseData.message || "Éxito"); // Muestra el mensaje del servidor
         })
         .catch(error => {
-            alert('Error: ' + error); // Muestra el error si ocurre
+          console.error('Error:', error);
+          alert('Error: ' + error.message);
         });
-    }
+      }
 });
