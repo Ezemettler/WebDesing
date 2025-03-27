@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             urlData.append(key, data[key]);
         }
 
-        fetch('https://script.google.com/macros/s/AKfycbwXW36nfecU1P6PeG0JKQlL8uquvXXF-SIdK068fMO6zp1FAhMcXcJuiXoL6c4T9bOV/exec', {
+        fetch('https://script.google.com/macros/s/AKfycby30cnz11HuiEf_fFNYfvCyJN0M5BPd7WBDnQr7wt4WTUN15R0ZfZnebdnMdtPxX3nz/exec', {
             method: 'POST',
             body: urlData,
             headers: {
