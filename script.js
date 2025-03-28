@@ -21,7 +21,7 @@ document.querySelectorAll("form").forEach((form) => {
       }
   
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbw2TOjcb-K6H53U0BobKQjzrNkzl6X43gL43G6vHGYRAPOYqfqK-a-nlRX_leBO6Xuf/exec", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbw_TATNncyJxckitCxu5pwdwDlYAaY4Lpestl7OWUDFDNFNA3YJo_PyInngPLCRalzE/exec", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
