@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             urlData.append(key, data[key]);
         }
 
-        fetch('https://script.google.com/macros/s/AKfycbzEFe297w1UdFN4V0iYY3-Vz3jZQJ1SzE1OFSfFAVVE-fcEJ7lZRcN0pNY8cgpExQcW/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbyrOpuyGMVoEo0fZpQspKmZfuX5b3XTruOF0YCA7PTyOu9xAkJi-jCoxm5WcDQbv1JV/exec', {
             method: 'POST',
             body: urlData,
             headers: {
@@ -50,3 +50,4 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
