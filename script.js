@@ -1,53 +1,39 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const formCrearProducto = document.getElementById("form-crearproducto");
-    const formProduccionVolumen = document.getElementById("form-produccionvolumen");
-
-    if (formCrearProducto) {
-        formCrearProducto.addEventListener("submit", function (event) {
-            handleSubmit(event, "form-crearproducto");
+document.querySelectorAll("form").forEach((form) => {
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+  
+      const formId = form.id;
+      let formData = {
+        formulario: formId,
+        nombre: form.querySelector("#nombre").value,
+        email: form.querySelector("#email").value,
+        telefono: form.querySelector("#telefono").value
+      };
+  
+      if (formId === "form-crearproducto") {
+        formData.cantidad = form.querySelector("#cantidad").value;
+        formData.consulta = form.querySelector("#consulta").value;
+      } else if (formId === "form-produccionvolumen") {
+        formData.marca = form.querySelector("#marca").value;
+        formData.servicio = form.querySelector("#servicio").value;
+        formData.cantidad = form.querySelector("#cantidad").value;
+        formData.consulta = form.querySelector("#consulta").value;
+      }
+  
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbyrOpuyGMVoEo0fZpQspKmZfuX5b3XTruOF0YCA7PTyOu9xAkJi-jCoxm5WcDQbv1JV/exec", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
         });
-    }
-
-    if (formProduccionVolumen) {
-        formProduccionVolumen.addEventListener("submit", function (event) {
-            handleSubmit(event, "form-produccionvolumen");
-        });
-    }
-
-    function handleSubmit(event, tipoFormulario) {
-        event.preventDefault();
-
-        const formData = new FormData(event.target);
-        const data = { formulario: tipoFormulario };
-        formData.forEach((value, key) => {
-            data[key] = value;
-        });
-
-        console.log("Datos enviados al servidor: ", data);
-        sendToGoogleSheets(data);
-    }
-
-    function sendToGoogleSheets(data) {
-        const urlData = new URLSearchParams();
-        for (const key in data) {
-            urlData.append(key, data[key]);
-        }
-
-        fetch('https://script.google.com/macros/s/AKfycbyrOpuyGMVoEo0fZpQspKmZfuX5b3XTruOF0YCA7PTyOu9xAkJi-jCoxm5WcDQbv1JV/exec', {
-            method: 'POST',
-            body: urlData,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        })
-        .then(response => response.json())
-        .then(responseData => {
-            alert(responseData.message || "Éxito");
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error: ' + error.message);
-        });
-    }
-});
-
+  
+        const result = await response.json();
+        console.log(result);
+        alert(result.message || "Error en el envío");
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Error al enviar el formulario");
+      }
+    });
+  });
+  
