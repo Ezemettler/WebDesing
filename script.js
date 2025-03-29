@@ -23,13 +23,13 @@ document.querySelectorAll("form").forEach((form) => {
       try {
         const response = await fetch("https://script.google.com/macros/s/AKfycbw_TATNncyJxckitCxu5pwdwDlYAaY4Lpestl7OWUDFDNFNA3YJo_PyInngPLCRalzE/exec", {
           method: "POST",
+          mode: "no-cors", // 🔴 Evita el error de CORS
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
   
-        const result = await response.json();
-        console.log(result);
-        alert(result.message || "Error en el envío");
+        // Como usamos "no-cors", no podemos leer la respuesta del servidor, pero mostramos un mensaje de éxito manualmente
+        alert("Formulario enviado correctamente");
       } catch (error) {
         console.error("Error:", error);
         alert("Error al enviar el formulario");
