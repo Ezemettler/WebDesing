@@ -30,9 +30,9 @@ document.querySelectorAll("form").forEach((form) => {
 
             // ✅ Redirigir sin esperar respuesta
             if (formId === "form-crearproducto") {
-                window.location.href = "gracias-crearproducto.html";
+                window.location.href = "gracias_crearproducto.html";
             } else if (formId === "form-produccionvolumen") {
-                window.location.href = "gracias-produccionvolumen.html";
+                window.location.href = "gracias_produccionvolumen.html";
             }
 
         } catch (error) {
