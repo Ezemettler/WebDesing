@@ -217,12 +217,12 @@ h1, h2 {
     display: flex;
     gap: 10px;
     transition: transform 0.5s ease-in-out;
-    width: max-content; /* Permite que el carrusel sea más ancho que su contenedor */
+    width: max-content; /* Permite que el carrusel se expanda */
 }
 
 /* Imágenes del carrusel */
 .clientes .carousel img {
-    max-width: 250px;
+    max-width: calc(50% - 5px); /* 50% del contenedor para mostrar 2 imágenes */
     height: auto;
     object-fit: contain;
 }
