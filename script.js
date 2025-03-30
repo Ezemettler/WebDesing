@@ -41,3 +41,23 @@ document.querySelectorAll("form").forEach((form) => {
         }
     });
 });
+
+const carousel = document.querySelector(".clientes .carousel");
+const images = carousel.querySelectorAll("img");
+const totalImages = images.length;
+let currentIndex = 0;
+
+function moveSlide(direction) {
+    const imageWidth = images[0].clientWidth + 20; // Ancho de la imagen + gap
+    const maxScroll = (totalImages - 1) * imageWidth;
+
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+        currentIndex = totalImages - 1; // Vuelve al final si estás en el inicio
+    } else if (currentIndex >= totalImages) {
+        currentIndex = 0; // Vuelve al inicio si estás en el final
+    }
+
+    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+}
