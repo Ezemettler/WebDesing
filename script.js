@@ -47,21 +47,25 @@ const images = carousel.querySelectorAll("img");
 const totalImages = images.length;
 let currentIndex = 0;
 
+// Ajusta el ancho del contenedor dinámicamente
+carousel.style.width = `${totalImages * (images[0].clientWidth + 10)}px`; 
+
 function moveSlide(direction) {
-    const imageWidth = images[0].clientWidth + 10; // Ancho de la imagen + gap
-    const maxIndex = totalImages - 1;
+    const imageWidth = images[0].clientWidth + 10; // Ancho de imagen + espacio
+    const maxScroll = (totalImages - 3) * imageWidth; // Ajusta según imágenes visibles
 
     currentIndex += direction;
 
-    // Limita el índice para que no avance más allá de las imágenes disponibles
+    // Evita que avance más de lo permitido
     if (currentIndex < 0) {
         currentIndex = 0;
-    } else if (currentIndex > maxIndex) {
-        currentIndex = maxIndex;
+    } else if (currentIndex * imageWidth > maxScroll) {
+        currentIndex = Math.floor(maxScroll / imageWidth);
     }
 
     carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 }
+
 
 
 
