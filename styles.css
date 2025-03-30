@@ -208,6 +208,7 @@ h1, h2 {
     width: 100%;
     max-width: 80%;
     margin: auto;
+    overflow: hidden;
     position: relative;
 }
 
@@ -215,22 +216,15 @@ h1, h2 {
 .clientes .carousel {
     display: flex;
     overflow: hidden;
-    align-items: center;
-    width: max-content;
-    gap: 10px; /* Espacio entre imágenes */
+    gap: 10px;
     transition: transform 0.5s ease-in-out;
-    white-space: nowrap;
 }
 
 /* Imágenes del carrusel */
-.carousel img {
-    width: auto; /* Mantiene el tamaño natural de la imagen */
-    max-width: 100%; /* Ajusta para que no se deforme */
-    height: 300px;
-    margin: 0;
-    border-radius: 0; /* Elimina bordes redondeados */
-    box-shadow: none; /* Elimina sombra */
-    background-color: transparent; /* Fondo transparente */
+.clientes .carousel img {
+    max-width: 250px; /* Ajusta según tu necesidad */
+    height: auto;
+    object-fit: contain;
 }
 
 
