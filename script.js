@@ -63,3 +63,4 @@ function moveSlide(direction) {
     carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 }
 
+
