@@ -222,14 +222,15 @@ h1, h2 {
 }
 
 /* Imágenes del carrusel */
-.clientes .carousel img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    object-fit: contain; /* Mantiene la proporción sin recortar */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.carousel img {
+    width: auto; /* Mantiene el tamaño natural de la imagen */
+    max-width: 100%; /* Ajusta para que no se deforme */
+    margin: 0;
+    border-radius: 0; /* Elimina bordes redondeados */
+    box-shadow: none; /* Elimina sombra */
+    background-color: transparent; /* Fondo transparente */
 }
+
 
 /* Botones de navegación */
 .carousel-btn {
