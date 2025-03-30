@@ -48,30 +48,21 @@ const totalImages = images.length;
 let currentIndex = 0;
 
 function moveSlide(direction) {
-    const imageWidth = images[0].clientWidth + 20; // Ancho de la imagen + gap
-    const maxScroll = (totalImages - 1) * imageWidth;
+    const imageWidth = images[0].clientWidth + 10; // Ancho de la imagen + gap
+    const maxIndex = totalImages - 1;
 
-    // Actualizar el índice según la dirección
     currentIndex += direction;
 
-    // Asegurarse de que el índice se mantenga dentro del rango
+    // Limita el índice para que no avance más allá de las imágenes disponibles
     if (currentIndex < 0) {
-        currentIndex = 0; // No permitir ir antes del primer elemento
-    } else if (currentIndex >= totalImages) {
-        currentIndex = totalImages - 1; // No permitir ir más allá del último elemento
+        currentIndex = 0;
+    } else if (currentIndex > maxIndex) {
+        currentIndex = maxIndex;
     }
 
-    // Realizar la transición del carrusel
-    carousel.style.transition = "transform 0.5s ease"; // Añadir transición suave
     carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 }
 
-// Opcional: Detectar el tamaño de las imágenes dinámicamente
-window.addEventListener("resize", () => {
-    const imageWidth = images[0].clientWidth + 20; // Asegurarse de que el cálculo se haga correctamente
-    const maxScroll = (totalImages - 1) * imageWidth;
-    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`; // Ajustar posición al redimensionar
-});
 
 
 
