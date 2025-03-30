@@ -215,7 +215,9 @@ h1, h2 {
 /* Carrusel */
 .clientes .carousel {
     display: flex;
+    overflow: hidden;
     align-items: center;
+    width: max-content;
     gap: 10px; /* Espacio entre imágenes */
     transition: transform 0.5s ease-in-out;
     white-space: nowrap;

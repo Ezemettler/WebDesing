@@ -48,9 +48,9 @@ const totalImages = images.length;
 let currentIndex = 0;
 
 function moveSlide(direction) {
-    const imageWidth = images[0].clientWidth + 10; // Ancho imagen + espacio
+    const imageWidth = images[0].clientWidth + 10; // Ancho de imagen + margen
     const containerWidth = carousel.parentElement.clientWidth;
-    const visibleImages = Math.floor(containerWidth / imageWidth);
+    const visibleImages = Math.floor(containerWidth / imageWidth); // Cantidad de imágenes visibles
     const maxIndex = totalImages - visibleImages; // Último índice permitido
 
     currentIndex += direction;
