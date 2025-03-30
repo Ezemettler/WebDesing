@@ -48,16 +48,17 @@ const totalImages = images.length;
 let currentIndex = 0;
 
 function moveSlide(direction) {
-    const imageWidth = images[0].clientWidth + 10; // Ancho de imagen + gap
-    const visibleImages = Math.floor(carousel.parentElement.clientWidth / imageWidth); 
-    const maxIndex = totalImages - visibleImages; // Última imagen visible sin vacío
+    const imageWidth = images[0].clientWidth + 10; // Ancho imagen + espacio
+    const containerWidth = carousel.parentElement.clientWidth;
+    const visibleImages = Math.floor(containerWidth / imageWidth);
+    const maxIndex = totalImages - visibleImages; // Último índice permitido
 
     currentIndex += direction;
 
     if (currentIndex < 0) {
-        currentIndex = 0; // No permite retroceder más allá del inicio
+        currentIndex = 0; // No retrocede más allá del inicio
     } else if (currentIndex > maxIndex) {
-        currentIndex = maxIndex; // No permite avanzar más allá de la última imagen visible
+        currentIndex = maxIndex; // No avanza más allá de la última imagen visible
     }
 
     carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;

@@ -225,6 +225,7 @@ h1, h2 {
 .carousel img {
     width: auto; /* Mantiene el tamaño natural de la imagen */
     max-width: 100%; /* Ajusta para que no se deforme */
+    height: 300px;
     margin: 0;
     border-radius: 0; /* Elimina bordes redondeados */
     box-shadow: none; /* Elimina sombra */
