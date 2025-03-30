@@ -54,10 +54,12 @@ function moveSlide(direction) {
     currentIndex += direction;
 
     if (currentIndex < 0) {
-        currentIndex = totalImages - 1; // Vuelve al final si estás en el inicio
+        currentIndex = 0; // No permite ir más allá del primer elemento
     } else if (currentIndex >= totalImages) {
-        currentIndex = 0; // Vuelve al inicio si estás en el final
+        currentIndex = totalImages - 1; // No permite ir más allá del último elemento
     }
 
+    // Actualiza la posición del carrusel
     carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 }
+
