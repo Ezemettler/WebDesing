@@ -199,68 +199,39 @@ h1, h2 {
     margin-top: 5px;
 }
 
-.clientes .carousel {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    gap: 10px; /* Espacio entre imágenes */
-    white-space: nowrap;
-}
 
-.clientes .carousel img {
-    height: auto; /* Ajusta la altura según necesites */
-    width: auto; /* Mantiene la proporción original */
-    object-fit: contain; /* Evita recortes en la imagen */
-}
-
+/* Contenedor principal del carrusel */
 .carousel-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-}
-
-.carousel-btn {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.prev {
-    left: 0;
-}
-
-.next {
-    right: 0;
-}
-
-.carousel-container {
-    position: relative;
+    width: 100%;
     max-width: 80%;
     margin: auto;
     overflow: hidden;
+    position: relative;
 }
 
-.carousel {
+/* Carrusel */
+.clientes .carousel {
     display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre imágenes */
     transition: transform 0.5s ease-in-out;
+    white-space: nowrap;
 }
 
-.carousel img {
+/* Imágenes del carrusel */
+.clientes .carousel img {
     width: 100%;
     max-width: 300px;
-    margin: 0 auto;
+    height: auto;
+    object-fit: contain; /* Mantiene la proporción sin recortar */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Botones de navegación */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -272,8 +243,14 @@ h1, h2 {
     cursor: pointer;
     font-size: 24px;
     border-radius: 5px;
+    z-index: 10;
 }
 
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Posición de los botones */
 .prev {
     left: 10px;
 }
@@ -282,9 +259,6 @@ h1, h2 {
     right: 10px;
 }
 
-.carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
 
 .trabajar {
     text-align: center;
