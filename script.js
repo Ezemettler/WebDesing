@@ -44,14 +44,14 @@ document.querySelectorAll("form").forEach((form) => {
 
 const carousel = document.querySelector(".clientes .carousel");
 const images = carousel.querySelectorAll("img");
+const totalImages = images.length;
 let currentIndex = 0;
 
 function moveSlide(direction) {
-    const imageWidth = images[0].clientWidth + 10; // Ancho imagen + margen
-    const container = carousel.parentElement;
-    const visibleWidth = container.clientWidth;
+    const imageWidth = images[0].clientWidth + 10; // Ancho de la imagen + margen
+    const visibleWidth = carousel.parentElement.clientWidth;
     const visibleImages = Math.floor(visibleWidth / imageWidth);
-    const maxIndex = Math.max(0, images.length - visibleImages); // Última posición permitida
+    const maxIndex = totalImages - visibleImages; // Última posición permitida
 
     currentIndex += direction;
 

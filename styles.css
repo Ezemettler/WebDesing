@@ -215,18 +215,17 @@ h1, h2 {
 /* Carrusel */
 .clientes .carousel {
     display: flex;
-    overflow: hidden;
     gap: 10px;
     transition: transform 0.5s ease-in-out;
+    width: max-content; /* Permite que el carrusel sea más ancho que su contenedor */
 }
 
 /* Imágenes del carrusel */
 .clientes .carousel img {
-    max-width: 250px; /* Ajusta según tu necesidad */
+    max-width: 250px;
     height: auto;
     object-fit: contain;
 }
-
 
 /* Botones de navegación */
 .carousel-btn {
@@ -255,6 +254,7 @@ h1, h2 {
 .next {
     right: 10px;
 }
+
 
 
 .trabajar {
