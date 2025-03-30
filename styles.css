@@ -203,15 +203,14 @@ h1, h2 {
     display: flex;
     align-items: center;
     overflow: hidden;
-    gap: 20px; /* Espacio entre imágenes */
+    gap: 10px; /* Espacio entre imágenes */
+    white-space: nowrap;
 }
 
 .clientes .carousel img {
-    height: 200px; /* Ajusta la altura según necesites */
+    height: auto; /* Ajusta la altura según necesites */
     width: auto; /* Mantiene la proporción original */
     object-fit: contain; /* Evita recortes en la imagen */
-    max-width: 150px; /* Ajusta si es necesario */
-    transition: transform 0.3s ease-in-out;
 }
 
 .carousel-container {
