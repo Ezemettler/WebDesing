@@ -44,21 +44,21 @@ document.querySelectorAll("form").forEach((form) => {
 
 const carousel = document.querySelector(".clientes .carousel");
 const images = carousel.querySelectorAll("img");
-const totalImages = images.length;
 let currentIndex = 0;
 
 function moveSlide(direction) {
-    const imageWidth = images[0].clientWidth + 10; // Ancho de imagen + margen
-    const containerWidth = carousel.parentElement.clientWidth;
-    const visibleImages = Math.floor(containerWidth / imageWidth); // Cantidad de imágenes visibles
-    const maxIndex = totalImages - visibleImages; // Último índice permitido
+    const imageWidth = images[0].clientWidth + 10; // Ancho imagen + margen
+    const container = carousel.parentElement;
+    const visibleWidth = container.clientWidth;
+    const visibleImages = Math.floor(visibleWidth / imageWidth);
+    const maxIndex = Math.max(0, images.length - visibleImages); // Última posición permitida
 
     currentIndex += direction;
 
     if (currentIndex < 0) {
-        currentIndex = 0; // No retrocede más allá del inicio
+        currentIndex = 0; // No retroceder más allá del inicio
     } else if (currentIndex > maxIndex) {
-        currentIndex = maxIndex; // No avanza más allá de la última imagen visible
+        currentIndex = maxIndex; // No avanzar más de lo permitido
     }
 
     carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
