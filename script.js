@@ -21,15 +21,25 @@ document.querySelectorAll("form").forEach((form) => {
       }
   
       try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbw_TATNncyJxckitCxu5pwdwDlYAaY4Lpestl7OWUDFDNFNA3YJo_PyInngPLCRalzE/exec", {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbw_TATNncyJxckitCxu5pwdwDlYAaY4Lpestl7OWUDFDNFNA3YJo_PyInngPLCRalzE/exec", {
           method: "POST",
           mode: "no-cors", // 🔴 Evita el error de CORS
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
-  
-        // Como usamos "no-cors", no podemos leer la respuesta del servidor, pero mostramos un mensaje de éxito manualmente
-        alert("Formulario enviado correctamente");
+
+        const result = await response.json();
+
+        if (result.message) {
+            if (formId === "form-crearproducto") {
+                window.location.href = "gracias-crearproducto.html";
+            } else if (formId === "form-produccionvolumen") {
+                window.location.href = "gracias-produccionvolumen.html";
+            }
+        } else {
+            alert("Hubo un error en el envío. Inténtalo nuevamente.");
+        }
+
       } catch (error) {
         console.error("Error:", error);
         alert("Error al enviar el formulario");
