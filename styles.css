@@ -215,16 +215,17 @@ h1, h2 {
 /* Carrusel */
 .clientes .carousel {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     transition: transform 0.5s ease-in-out;
     width: max-content; /* Permite que el carrusel se expanda */
 }
 
 /* Imágenes del carrusel */
 .clientes .carousel img {
-    max-width: calc(50% - 5px); /* 50% del contenedor para mostrar 2 imágenes */
-    height: auto;
-    object-fit: contain;
+    height: auto; /* Mantiene la proporción del alto según el ancho */
+    max-height: 250px; /* Ajusta la altura máxima de las imágenes */
+    width: auto; /* El ancho se ajusta automáticamente */
+    object-fit: contain; /* Mantiene la proporción sin recortar */
 }
 
 /* Botones de navegación */
