@@ -207,7 +207,7 @@ h1, h2 {
 }
 
 .clientes .carousel img {
-    height: 100px; /* Ajusta la altura según necesites */
+    height: 200px; /* Ajusta la altura según necesites */
     width: auto; /* Mantiene la proporción original */
     object-fit: contain; /* Evita recortes en la imagen */
     max-width: 150px; /* Ajusta si es necesario */
