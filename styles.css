@@ -208,24 +208,23 @@ h1, h2 {
     width: 100%;
     max-width: 90%;
     margin: auto;
-    overflow: hidden;
+    overflow: hidden; /* Evita que se vean imágenes fuera del área visible */
     position: relative;
 }
 
 /* Carrusel */
 .clientes .carousel {
     display: flex;
-    gap: 20px;
-    transition: transform 0.5s ease-in-out; /* Tiempo más lento */
-    width: max-content;
+    transition: transform 0.5s ease-in-out; /* Hace la transición más suave */
+    width: 100%; /* Asegura que el carrusel ocupa todo el ancho disponible */
 }
 
 /* Imágenes del carrusel */
 .clientes .carousel img {
-    height: auto; /* Mantiene la proporción del alto según el ancho */
-    max-height: 350px; /* Ajusta la altura máxima de las imágenes */
-    width: auto; /* El ancho se ajusta automáticamente */
-    object-fit: contain; /* Mantiene la proporción sin recortar */
+    max-height: 350px; /* Limita la altura máxima */
+    width: 50%; /* Cada imagen ocupa la mitad del contenedor */
+    flex-shrink: 0; /* Evita que las imágenes se encojan */
+    object-fit: contain; /* Asegura que las imágenes mantengan su proporción */
 }
 
 /* Botones de navegación */
@@ -255,6 +254,7 @@ h1, h2 {
 .next {
     right: 10px;
 }
+
 
 
 
