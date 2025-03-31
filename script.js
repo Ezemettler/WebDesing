@@ -48,12 +48,12 @@ const images = Array.from(carousel.querySelectorAll("img"));
 const container = carousel.parentElement;
 
 let currentIndex = 0;
-const visibleImages = 2; // Cantidad de imágenes visibles a la vez
-const imageWidth = images[0].clientWidth + 20; // Ancho de imagen + margen
-const totalSlides = Math.ceil(images.length / visibleImages); // 4 slides esperados
-const maxIndex = totalSlides - 1; // Último índice permitido
+const visibleImages = 2; // Se ven 2 imágenes por slide
+const imageWidth = images[0].offsetWidth + 20; // Ancho de imagen + margen
+const totalSlides = Math.ceil(images.length / visibleImages); // Debe ser 4
+const maxIndex = totalSlides - 1; // Último índice permitido (3 porque empieza en 0)
 
-// Ajustar el ancho total del carrusel
+// Ajustar el ancho total del carrusel para evitar slides vacíos
 carousel.style.width = `${imageWidth * images.length}px`;
 
 function moveSlide(direction) {
@@ -66,10 +66,11 @@ function moveSlide(direction) {
         currentIndex = maxIndex;
     }
 
-    // Calcular desplazamiento basado en el ancho real de las imágenes
-    const translateX = -(currentIndex * visibleImages * imageWidth);
+    // Desplazar el carrusel solo dentro del rango correcto
+    const translateX = -(currentIndex * imageWidth * visibleImages);
     carousel.style.transform = `translateX(${translateX}px)`;
 }
+
 
 
 
