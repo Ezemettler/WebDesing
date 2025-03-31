@@ -50,6 +50,8 @@ const container = carousel.parentElement;
 let currentIndex = 0;
 const visibleImages = 2; // Número de imágenes visibles a la vez
 const totalImages = images.length;
+const maxIndex = Math.ceil(totalImages / visibleImages) - 1; // Último índice válido
+
 const imageWidth = container.clientWidth / visibleImages; // Ajustar el ancho de cada imagen
 
 // Asegurar que cada imagen tenga el ancho correcto
@@ -58,21 +60,19 @@ images.forEach(img => {
 });
 
 function moveSlide(direction) {
-    const maxIndex = totalImages - visibleImages; // Última posición permitida
-
-    currentIndex += direction * visibleImages; // Mover de a 2 imágenes
+    // Mover el índice sin pasarse del máximo permitido
+    currentIndex += direction;
 
     // No permitir que se mueva más allá del inicio
     if (currentIndex < 0) {
         currentIndex = 0;
     } 
 
-    // No permitir que se mueva más allá del final
+    // No permitir que se mueva más allá del último slide válido
     if (currentIndex > maxIndex) {
         currentIndex = maxIndex;
     }
 
     // Mover el carrusel
-    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    carousel.style.transform = `translateX(-${currentIndex * container.clientWidth}px)`;
 }
-
