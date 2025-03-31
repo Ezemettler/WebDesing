@@ -48,22 +48,24 @@ const images = Array.from(carousel.querySelectorAll("img"));
 const container = carousel.parentElement;
 
 let currentIndex = 0;
-const visibleImages = 2; // Número de imágenes visibles a la vez
+const visibleImages = 2; // Cantidad de imágenes visibles a la vez
 const totalImages = images.length;
-const maxIndex = totalImages / visibleImages - 1; // Último índice válido
+const totalSlides = Math.ceil(totalImages / visibleImages); // Cantidad total de slides
+const maxIndex = totalSlides - 1; // Último slide permitido
 
 function moveSlide(direction) {
     currentIndex += direction;
 
-    // Restringir el índice dentro del rango permitido
+    // Restringir el índice dentro del rango válido (de 0 a 3)
     if (currentIndex < 0) {
         currentIndex = 0;
-    } else if (currentIndex > maxIndex) {
+    } else if (currentIndex >= totalSlides) {
         currentIndex = maxIndex;
     }
 
-    // Mover el carrusel solo dentro del límite
+    // Calcular el desplazamiento exacto en función del tamaño del contenedor
     const translateX = -(currentIndex * container.clientWidth);
     carousel.style.transform = `translateX(${translateX}px)`;
 }
+
 
