@@ -216,8 +216,8 @@ h1, h2 {
 .clientes .carousel {
     display: flex;
     gap: 20px;
-    transition: transform 1s ease-in-out;
-    width: max-content; /* Permite que el carrusel se expanda */
+    transition: transform 0.5s ease-in-out; /* Tiempo más lento */
+    width: max-content;
 }
 
 /* Imágenes del carrusel */
@@ -255,6 +255,7 @@ h1, h2 {
 .next {
     right: 10px;
 }
+
 
 
 
