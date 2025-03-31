@@ -42,16 +42,14 @@ document.querySelectorAll("form").forEach((form) => {
     });
 });
 
+
 const carousel = document.querySelector(".clientes .carousel");
 const images = carousel.querySelectorAll("img");
 let currentIndex = 0;
 
 function moveSlide(direction) {
     const imageWidth = images[0].clientWidth + 10; // Ancho de imagen + margen
-    const container = carousel.parentElement;
-    const visibleWidth = container.clientWidth;
-    const visibleImages = Math.floor(visibleWidth / imageWidth); // Cuántas imágenes se ven a la vez
-    const maxIndex = Math.max(0, images.length - visibleImages); // Última posición permitida
+    const maxIndex = images.length - 1; // Último índice válido
 
     // Actualizamos el índice según la dirección
     currentIndex += direction;
@@ -69,5 +67,3 @@ function moveSlide(direction) {
     // Actualizar la posición del carrusel
     carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 }
-
-
