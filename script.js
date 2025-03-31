@@ -49,21 +49,23 @@ let currentIndex = 0;
 
 function moveSlide(direction) {
     const imageWidth = images[0].clientWidth + 10; // Ancho de imagen + margen
-    const maxIndex = images.length - 1; // Último índice válido
+    const containerWidth = carousel.parentElement.clientWidth; // Ancho del contenedor
+    const contentWidth = images.length * imageWidth; // Ancho total del contenido
+    const maxScroll = contentWidth - containerWidth; // Desplazamiento máximo permitido
 
     // Actualizamos el índice según la dirección
     currentIndex += direction;
 
     // No permitir que se mueva más allá del inicio
     if (currentIndex < 0) {
-        currentIndex = 0; // No retroceder más allá del inicio
-    } 
+        currentIndex = 0;
+    }
 
     // No permitir que se mueva más allá del final
-    else if (currentIndex > maxIndex) {
-        currentIndex = maxIndex; // Detenerse al llegar al final
+    else if (currentIndex * imageWidth > maxScroll) {
+        currentIndex = Math.floor(maxScroll / imageWidth); // Ajuste al límite
     }
 
     // Actualizar la posición del carrusel
-    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    carousel.parentElement.scrollLeft = currentIndex * imageWidth;
 }
