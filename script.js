@@ -51,7 +51,7 @@ function moveSlide(direction) {
     const imageWidth = images[0].clientWidth + 10; // Ancho de imagen + margen
     const containerWidth = carousel.parentElement.clientWidth; // Ancho del contenedor
     const contentWidth = images.length * imageWidth; // Ancho total del contenido
-    const maxScroll = contentWidth - containerWidth; // Desplazamiento máximo permitido
+    const maxPosition = contentWidth - containerWidth; // Posición máxima permitida
 
     // Actualizamos el índice según la dirección
     currentIndex += direction;
@@ -62,10 +62,10 @@ function moveSlide(direction) {
     }
 
     // No permitir que se mueva más allá del final
-    else if (currentIndex * imageWidth > maxScroll) {
-        currentIndex = Math.floor(maxScroll / imageWidth); // Ajuste al límite
+    else if (currentIndex * imageWidth > maxPosition) {
+        currentIndex = Math.floor(maxPosition / imageWidth); // Ajuste al límite
     }
 
     // Actualizar la posición del carrusel
-    carousel.parentElement.scrollLeft = currentIndex * imageWidth;
+    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
 }
