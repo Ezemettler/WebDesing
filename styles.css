@@ -47,6 +47,8 @@ h1, h2 {
 }
 .inicio {
     background: url('images/fondo-header.png') no-repeat center center/cover;
+    background-size: auto 100%; /* Ajusta la altura al 100% y el ancho se calcula automáticamente */
+    background-color: white; /* Fondo blanco para los márgenes sobrantes */
     color: white;
     padding: 150px 15%;
     text-align: left;
