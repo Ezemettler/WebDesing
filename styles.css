@@ -50,7 +50,7 @@ h1, h2 {
     color: white;
     padding: 150px 15%;
     text-align: left;
-    position: absolute;
+    position: relative;
 }
 .inicio::after {
     content: '';
