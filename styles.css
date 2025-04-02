@@ -46,10 +46,10 @@ h1, h2 {
     font-weight: 600;
 }
 .inicio {
-    background: url('suplementos.jpg') no-repeat center center/cover;
+    background: url('images/logo/logo-blanco.jpg') no-repeat center center/cover;
     color: white;
     padding: 150px 15%;
-    text-align: center;
+    text-align: left;
     position: relative;
 }
 .inicio::after {
@@ -318,7 +318,7 @@ h1, h2 {
     background-color: #222;
     color: white;
     padding: 40px 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .footer-container {
