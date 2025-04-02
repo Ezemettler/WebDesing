@@ -67,7 +67,7 @@ h1, h2 {
 }
 .cta-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 20px;
     margin-top: 20px;
 }
