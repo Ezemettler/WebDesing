@@ -46,7 +46,7 @@ h1, h2 {
     font-weight: 800;
 }
 .inicio {
-    background: url('images/fondo-header.png') no-repeat center center/cover;
+    background: url('images/fondo-header2.png') no-repeat center center/cover;
     background-size: auto 100%; /* Ajusta la altura al 100% y el ancho se calcula automáticamente */
     background-color: white; /* Fondo blanco para los márgenes sobrantes */
     color: white;
