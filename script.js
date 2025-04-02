@@ -62,12 +62,9 @@ function moveSlide(direction) {
     // Verificar si el nuevo índice está dentro del límite permitido
     if (newIndex >= 0 && newIndex <= maxIndex) {
         currentIndex = newIndex;
-        const translateX = -(currentIndex * imageWidth * visibleImages);
+
+        // Calcular el desplazamiento correcto
+        const translateX = -(currentIndex * imageWidth);
         carousel.style.transform = `translateX(${translateX}px)`;
     }
 }
-
-
-
-
-
